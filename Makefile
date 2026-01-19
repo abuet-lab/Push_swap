@@ -6,7 +6,7 @@
 #    By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 21:53:05 by antoinebuet       #+#    #+#              #
-#    Updated: 2026/01/16 21:55:27 by antoinebuet      ###   ########.fr        #
+#    Updated: 2026/01/19 18:31:25 by antoinebuet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@
 
 NAME	= push_swap
 CFLAGS	= -Wall -Wextra -Werror -g
-cc 	= cc
-
+CC 	= cc
+ARGS ?= 1 2 3 4 5
 ################################################################################
 ## SOURCES
 
@@ -24,7 +24,7 @@ HEADER = push_swap.h
 
 OPTION = -c -I $(HEADER)
 
-SRC_FILES = main.c p.c reverse.c rotate.c swap.c\
+SRC_FILES = main.c push.c reverse.c rotate.c swap.c ft_atoi.c ft_split.c ft_strlcpy.c ft_init.c\
 
 OBJ_FILES =  $(SRC_FILES:.c=.o)
 
@@ -33,11 +33,12 @@ OBJ_FILES =  $(SRC_FILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	@$(CC) $(CFLAGS) $(OPTION) $(SRC_FILES)
-	@ar rc $(NAME) $(OBJ_FILES)
+$(NAME): $(OBJ_FILES)
+	@$(CC) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 	
-
+%.o: %.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	
 clean: 
 	@rm -f $(OBJ_FILES)
 
@@ -47,7 +48,6 @@ fclean: clean
 re: fclean all
 
 launch : all 
-	@$(CC) $(NAME)
-	@./a.out
+	@./$(NAME) $(ARGS)
 	@make fclean
 .PHONY: all clean fclean launch re
