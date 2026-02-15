@@ -6,17 +6,16 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:53 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/01/19 19:14:23 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/15 16:28:16 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //verify
-void swap_a(int *a, int *b, int size_stack, int number_a)
+void swap_a(int *a, int size_stack, int number_a)
 {
 	int index_a;
 	int temp;
-	(void) b;
 	
 	if (number_a < 2)
 		return ;
@@ -27,12 +26,10 @@ void swap_a(int *a, int *b, int size_stack, int number_a)
 	write(1, "sa\n", 3);
 }
 
-void swap_b(int *a, int *b, int size_stack, int number_a)
+void swap_b(int *b, int size_stack, int number_a)
 {
 	int index_b;
 	int temp;
-	(void) a;
-	(void) size_stack;
 	
 	if ((size_stack - number_a) < 2)
 		return ;

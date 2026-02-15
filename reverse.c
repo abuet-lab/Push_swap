@@ -6,18 +6,18 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:46 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/01/19 19:34:33 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/15 16:48:22 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse_rotate_a(int *a, int *b, int size_stack, int number_a)
+void reverse_rotate_a(int *a, int size_stack, int number_a)
 {
 	int index_a;
 	int temp;
 	int i;
-	(void) b;
+
 
 	if (number_a < 2)
 		return;
@@ -33,12 +33,11 @@ void reverse_rotate_a(int *a, int *b, int size_stack, int number_a)
 	write(1, "rra\n", 3);
 }
 
-void reverse_rotate_b(int *a, int *b, int size_stack, int number_a)
+void reverse_rotate_b(int *b, int size_stack, int number_a)
 {
 	int index_b;
 	int temp;
 	int i;
-	(void) a;
 
 	if ((size_stack - number_a) < 2)
 		return;

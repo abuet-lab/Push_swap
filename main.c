@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/01/19 19:26:25 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/15 17:38:03 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void sorting_a(int *a, int size_stack, int number_a)
+{
+	int i;
+
+	i = (size_stack - number_a);
+	if ((a[i] < a[i + 1]) && (a[i + 1] < a[i + 2]))
+		return ;
+	if (a[i] < a[i + 1])
+			swap_a(a, size_stack, number_a);
+	if (a[i] > a[i + 2])
+		rotate_a(a, size_stack, number_a);
+	if (a[i] > a[i + 1])
+			swap_a(a, size_stack, number_a);
+}
 int *ft_init_a (int argc, char **argv)
 {
 	int *a;
@@ -52,10 +66,11 @@ void ft_controller(int *a, int *b)
 
 	number_a = ft_size_b(a);
 	size_stack = number_a;
-	push_b(a, b, size_stack, &number_a);
-	push_b(a, b, size_stack, &number_a);
-	push_b(a, b, size_stack, &number_a);
-	push_b(a, b, size_stack, &number_a);
+	while(number_a > 3)
+		push_b(a, b, size_stack, &number_a);
+	sorting_a(a, size_stack, number_a);
+
+	
 	printf("b : ");
 	i = 0;
 	while (i < 5)
@@ -64,32 +79,14 @@ void ft_controller(int *a, int *b)
 		i++;
 	}
 	printf("\n");
-	rotate_b(a, b, size_stack, number_a);
-	i = 0;
 	printf("a : ");
-	while (i < 5)
-	{
-		printf("%d", b[i]);	
-		i++;
-	}
-	printf("\n");
-	reverse_rotate_b(a, b, size_stack, number_a);
-	printf("b : ");
 	i = 0;
-	while (i < 5)
+	while (i < 10)
 	{
-		printf("%d", b[i]);	
+		printf("%d", a[i]);	
 		i++;
 	}
-	printf("\n");
-	// printf("b : ");
-	// i = 0;
-	// while (i < 5)
-	// {
-	// 	printf("%d", b[i]);	
-	// 	i++;
-	// }
-	// printf("\n");
+	printf("\n%d", number_a);
 }
 
 int main(int argc, char **argv)

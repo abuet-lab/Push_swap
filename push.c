@@ -6,13 +6,13 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:40 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/01/19 18:48:49 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/15 16:10:37 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//verify
+
 void push_b(int *a, int *b, int size_stack, int *number_a)
 {
 	int index_a;
