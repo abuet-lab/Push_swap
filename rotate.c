@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:51 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/15 17:31:03 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/15 17:45:43 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void rotate_b(int *b, int size_stack, int number_a)
 		i++;
 	}
 	b[size_stack - 1] = temp;
-	write(1, "ra\n", 3);
+	write(1, "rb\n", 3);
 }
 
 void rotate_r(int *a, int *b, int size_stack, int number_a)
