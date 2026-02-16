@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/16 15:00:36 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/16 15:47:51 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,14 @@ void ft_controller(int *a, int *b)
 	int number_a;
 	//int i = 0;
 
+	(void) b;
+
 	number_a = ft_size_b(a);
 	size_stack = number_a;
-	while(number_a > 3)
-		push_b(a, b, size_stack, &number_a);
-	sorting_a(a, size_stack, number_a);
-	printf("\n%d",number_move_a (size_stack, number_a, 3));
+	//while(number_a > 3)
+	//	push_b(a, b, size_stack, &number_a);
+	//sorting_a(a, size_stack, number_a);
+	printf("\n%d", number_move_a(a, size_stack, number_a, 4));
 	
 	// printf("b : ");
 	// i = 0;

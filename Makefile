@@ -6,7 +6,7 @@
 #    By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 21:53:05 by antoinebuet       #+#    #+#              #
-#    Updated: 2026/02/16 14:58:17 by antoinebuet      ###   ########.fr        #
+#    Updated: 2026/02/16 16:09:22 by antoinebuet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 NAME	= push_swap
 CFLAGS	= -Wall -Wextra -Werror -g
 CC 	= cc
-ARGS ?= 1 2 3 4 5 6 7 8 9 10
+ARGS ?= 1 2 5 6 7
 ################################################################################
 ## SOURCES
 

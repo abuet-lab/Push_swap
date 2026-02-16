@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:58:27 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/16 14:46:32 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/16 15:48:47 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void reverse_rotate_r(int *a, int *b, int size_stack, int number_a);
 void swap_a(int *a, int size_stack, int number_a);
 void swap_b(int *b, int size_stack, int number_a);
 void swap_ss(int *a, int *b, int size_stack, int number_a);
-int number_move_a (int size_stack, int number_a, int index);
+int number_move_a(int *a, int size_stack, int number_a, int number);
+int number_move_b(int size_stack, int number_a, int index);
 
 #endif
