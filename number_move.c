@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_move.c                                       :+:      :+:    :+:   */
+/*   number_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 14:17:44 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/19 19:08:01 by antoinebuet      ###   ########.fr       */
+/*   Created: 2026/02/19 18:42:54 by antoinebuet       #+#    #+#             */
+/*   Updated: 2026/02/19 19:09:36 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int number_move_b(int size_stack, int number_a, int index)
+int move_b(int size_stack, int number_a, int index)
 {
 	int number_b;
 	int count;
@@ -36,36 +36,12 @@ static int number_move_b(int size_stack, int number_a, int index)
 			index++;
 			count++;
 		}
-		return (count);
+		return (count * -1);
 	}
 	return (0);
 }
 
-int find_min(int *a, int size_stack, int number_a)
-{
-	int index_a;
-	int min_number;
-	int min_index;
-
-	if (number_a <= 0)
-		return (0);
-
-	index_a = size_stack - number_a;
-	min_number = a[index_a];
-	min_index = index_a;
-	while (index_a < size_stack)
-	{
-		if (a[index_a] < min_number)
-		{
-			min_number = a[index_a];
-			min_index = index_a;
-		}
-		index_a++;
-	}
-	return (min_index);
-}
-
-static int nb_move_a_middle(int *a, int size_stack, int number_a, int number)
+static int move_a_middle(int *a, int size_stack, int number_a, int number)
 {
 	int count;
 	int min_index;
@@ -84,15 +60,15 @@ static int nb_move_a_middle(int *a, int size_stack, int number_a, int number)
 				count++;
 				min_index++;
 			}
-			return (count);
+			return (count * -1);
 		}
 		min_index++;
 		count++;
 	}
-	return (-1);
+	return (-999999);
 }
 
-static int nb_move_a_start(int *a, int size_stack, int number_a, int number)
+static int move_a_start(int *a, int size_stack, int number_a, int number)
 {
 	int count;
 	int min_index;
@@ -113,49 +89,24 @@ static int nb_move_a_start(int *a, int size_stack, int number_a, int number)
 				count++;
 				index_a++;
 			}
-			return (count);
+			return (count * -1);
 		}
 		index_a++;
 		count++;
 	}
-	return (-1);
+	return (-999999);
 }
 
-int number_move_a(int *a, int size_stack, int number_a, int number)
+int move_a(int *a, int size_stack, int number_a, int number)
 {
 	int number_move;
 
-	number_move = nb_move_a_middle(a, size_stack, number_a, number);
-	if (number_move == -1)
-		number_move = nb_move_a_start(a, size_stack, number_a, number);
-	if (number_move == -1)
+	number_move = move_a_middle(a, size_stack, number_a, number);
+	if (number_move == -999999)
+		number_move = move_a_start(a, size_stack, number_a, number);
+	if (number_move == -999999)
 		return (0);
 	return (number_move);
 }
 
-
-int min_move(int *a, int *b, int size_stack, int number_a)
-{
-	int index_b;
-	int current_nb_move;
-	int min_move;
-	int indexb_min_move;
-	
-	index_b = number_a;
-	current_nb_move = 0;
-	indexb_min_move = 0;
-	min_move = 0;
-	while (index_b < size_stack)
-	{
-		current_nb_move = (number_move_b(size_stack, number_a, index_b)
-		 + number_move_a(a, size_stack, number_a, b[index_b]));
-		if (current_nb_move <= min_move)
-		{
-			min_move = current_nb_move;
-			indexb_min_move = index_b;
-		}	
-		index_b++;
-	}
-	return (indexb_min_move);
-}
 

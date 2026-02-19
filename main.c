@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/19 15:09:04 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/19 18:42:31 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sorting_a(int *a, int size_stack, int number_a)
+static void first_sorting_a(int *a, int size_stack, int number_a)
 {
 	int i;
 
@@ -67,18 +67,14 @@ static void ft_controller(int *a, int *b, int argc, char **argv)
 {
 	int size_stack;
 	int number_a;
-	
-
 	(void) b;
 
 	number_a = ft_size_stack(argc, argv);
 	size_stack = number_a;
-	//while(number_a > 3)
-	//	push_b(a, b, size_stack, &number_a);
-	//sorting_a(a, size_stack, number_a);
-	//printf("\n a : %d", number_move_a(a, size_stack, number_a, 3));
-	printf("\n a : %d", number_move_a(a, size_stack, number_a, 5));
-	//printf("\n%d", min_move(a, b, size_stack, number_a));
+	while(number_a > 3)
+		push_b(a, b, size_stack, &number_a);
+	first_sorting_a(a, size_stack, number_a);
+	
 	
 	// int i = 0;
 	// printf("b : ");
