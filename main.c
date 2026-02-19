@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/16 15:47:51 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/19 15:09:04 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void sorting_a(int *a, int size_stack, int number_a)
 	if (a[i] > a[i + 1])
 			swap_a(a, size_stack, number_a);
 }
-int *ft_init_a (int argc, char **argv)
+static int *ft_init_a (int argc, char **argv)
 {
 	int *a;
 
@@ -49,30 +49,38 @@ int *ft_init_a (int argc, char **argv)
 	return (a);
 }
 
-int ft_size_b(int *a)
+static int ft_size_stack(int argc, char **argv)
 {
-	int i;
+	int count;
 
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
+	count = 0;
+	if (argc == 2)
+	{
+		count = number_string( argv[1], ' ');
+		return (count);
+	}
+	else if (argc > 2)
+		return (count = argc - 1);
+	return (0);
 }
-void ft_controller(int *a, int *b)
+static void ft_controller(int *a, int *b, int argc, char **argv)
 {
 	int size_stack;
 	int number_a;
-	//int i = 0;
+	
 
 	(void) b;
 
-	number_a = ft_size_b(a);
+	number_a = ft_size_stack(argc, argv);
 	size_stack = number_a;
 	//while(number_a > 3)
 	//	push_b(a, b, size_stack, &number_a);
 	//sorting_a(a, size_stack, number_a);
-	printf("\n%d", number_move_a(a, size_stack, number_a, 4));
+	//printf("\n a : %d", number_move_a(a, size_stack, number_a, 3));
+	printf("\n a : %d", number_move_a(a, size_stack, number_a, 5));
+	//printf("\n%d", min_move(a, b, size_stack, number_a));
 	
+	// int i = 0;
 	// printf("b : ");
 	// i = 0;
 	// while (i < 10)
@@ -101,9 +109,9 @@ int main(int argc, char **argv)
 	a = ft_init_a(argc, argv);
 	if (!a)
 		return (0);
-	b = malloc (ft_size_b(a) * sizeof(int));
+	b = malloc (ft_size_stack(argc, argv) * sizeof(int));
 	if (!b)
 		return (0);
-	ft_controller(a, b);
+	ft_controller(a, b, argc, argv);
 	return (0);
 }

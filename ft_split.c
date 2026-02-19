@@ -6,13 +6,13 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 20:39:01 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/01/17 21:22:55 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/19 14:14:38 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	number_string(char const *s, char c)
+size_t	number_string(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
