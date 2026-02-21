@@ -6,7 +6,7 @@
 #    By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 21:53:05 by antoinebuet       #+#    #+#              #
-#    Updated: 2026/02/19 18:38:10 by antoinebuet      ###   ########.fr        #
+#    Updated: 2026/02/21 19:32:57 by antoinebuet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 NAME	= push_swap
 CFLAGS	= -Wall -Wextra -Werror -g
 CC 	= cc
-ARGS ?= 10 9 8 7 6 1 2 3 4
+ARGS ?= 10 87 38 21 43 72
 ################################################################################
 ## SOURCES
 
@@ -24,7 +24,7 @@ HEADER = push_swap.h
 
 OPTION = -c -I $(HEADER)
 
-SRC_FILES = main.c push.c reverse.c rotate.c swap.c ft_atoi.c ft_split.c ft_strlcpy.c ft_init.c check_move.c sorting.c\
+SRC_FILES = main.c push.c reverse.c rotate.c swap.c ft_atoi.c ft_split.c ft_strlcpy.c ft_init.c check_move.c sorting.c number_move.c\
 
 OBJ_FILES =  $(SRC_FILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:58:27 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/19 19:10:45 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/21 15:54:48 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,11 @@ int find_min(int *a, int size_stack, int number_a);
 
 int move_a(int *a, int size_stack, int number_a, int number);
 int move_b(int size_stack, int number_a, int index);
+
+void sorting(int *a, int *b, int size_stack, int *number_a);
+
+int number_move_a(int *a, int size_stack, int number_a, int number);
+
+void last_sorting(int *a, int size_stack, int number_a);
 
 #endif

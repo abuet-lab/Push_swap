@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:46 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/15 16:48:22 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/21 16:14:57 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ void reverse_rotate_a(int *a, int size_stack, int number_a)
 	if (number_a < 2)
 		return;
 	index_a = size_stack - number_a;
-	temp = a[number_a - 1];
-	i = number_a - 1;
+	temp = a[size_stack - 1];
+	i = size_stack - 1;
 	while (i > index_a)
 	{
 		a[i] = a[i - 1];
 		i--;
 	}
 	a[index_a] = temp;
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void reverse_rotate_b(int *b, int size_stack, int number_a)
@@ -50,7 +50,7 @@ void reverse_rotate_b(int *b, int size_stack, int number_a)
 		i--;
 	}
 	b[index_b] = temp;
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 
 }
 
@@ -63,8 +63,8 @@ void reverse_rotate_r(int *a, int *b, int size_stack, int number_a)
 	if (((size_stack - number_a) < 2) && (number_a < 2))
 		return;
 	index_a = size_stack - number_a;
-	temp = a[number_a - 1];
-	i = number_a - 1;
+	temp = a[size_stack - 1];
+	i = size_stack - 1;
 	while (i > index_a)
 	{
 		a[i] = a[i - 1];

@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/19 18:42:31 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/21 18:41:20 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ static void ft_controller(int *a, int *b, int argc, char **argv)
 {
 	int size_stack;
 	int number_a;
-	(void) b;
+	int i = 0;
 
 	number_a = ft_size_stack(argc, argv);
 	size_stack = number_a;
-	while(number_a > 3)
+	while(number_a > 3) 
 		push_b(a, b, size_stack, &number_a);
 	first_sorting_a(a, size_stack, number_a);
-	
-	
-	// int i = 0;
+	while (number_a != size_stack)
+	 	sorting(a, b, size_stack, &number_a);
+	last_sorting(a, size_stack, number_a); 
 	// printf("b : ");
 	// i = 0;
 	// while (i < 10)
@@ -84,15 +84,12 @@ static void ft_controller(int *a, int *b, int argc, char **argv)
 	// 	printf("%d", b[i]);	
 	// 	i++;
 	// }
-	// printf("\n");
-	// printf("a : ");
-	// i = 0;
-	// while (i < 10)
-	// {
-	// 	printf("%d", a[i]);	
-	// 	i++;
-	// }
-	// printf("\n%d", number_a);
+	i = 0;
+	while (i < 10)
+	{
+		printf("\n%d", a[i]);	
+		i++;
+	}
 }
 
 int main(int argc, char **argv)
@@ -109,5 +106,7 @@ int main(int argc, char **argv)
 	if (!b)
 		return (0);
 	ft_controller(a, b, argc, argv);
+	free(a);
+	free(b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:42:54 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/19 19:09:36 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/21 19:29:20 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,72 +41,81 @@ int move_b(int size_stack, int number_a, int index)
 	return (0);
 }
 
-static int move_a_middle(int *a, int size_stack, int number_a, int number)
+static int find_index(int *a, int size_stack, int number_a, int value)
 {
-	int count;
-	int min_index;
-
-	count = 0;
-	min_index = find_min(a, size_stack, number_a);
-	while (min_index < size_stack)
+	int i;	
+	i = size_stack - number_a;
+	while (i < size_stack)
 	{
-		if (a[min_index] > number)
-		{
-			if (min_index <= number_a / 2  + (size_stack - number_a))
-				return (count);
-			count = 0;
-			while (min_index < size_stack)
-			{
-				count++;
-				min_index++;
-			}
-			return (count * -1);
-		}
-		min_index++;
-		count++;
+		if (a[i] == value)
+			return (i);
+		i++;
 	}
-	return (-999999);
+	return (-1);
 }
 
-static int move_a_start(int *a, int size_stack, int number_a, int number)
+static int find_min_value(int *a, int size_stack, int number_a)
 {
-	int count;
-	int min_index;
-	int index_a;
-
-	count = 0;
-	min_index = find_min(a, size_stack, number_a);
-	index_a = size_stack - number_a;
-	while (index_a <= min_index)
+	int i;
+	int min;	
+	i = size_stack - number_a + 1;
+	min = a[size_stack - number_a];
+	while (i < size_stack)
 	{
-		if (a[index_a] < number)
-		{
-			if (index_a <= number_a / 2  + (size_stack - number_a))
-				return (count);
-			count = 0;
-			while (index_a < size_stack)
-			{
-				count++;
-				index_a++;
-			}
-			return (count * -1);
-		}
-		index_a++;
-		count++;
+		if (a[i] < min)
+		    min = a[i];
+		i++;
 	}
-	return (-999999);
+	return (min);
+}
+
+static int find_max_value(int *a, int size_stack, int number_a)
+{
+	int i;
+	int max;	
+	i = size_stack - number_a + 1;
+	max = a[size_stack - number_a];
+	while (i < size_stack)
+	{
+		if (a[i] > max)
+			max = a[i];
+		i++;
+	}
+	return (max);
+}
+
+static int optimal_rotation(int count, int number_a)
+{
+	if (count <= number_a / 2)
+		return (count);
+	return ((number_a - count) * -1);
 }
 
 int move_a(int *a, int size_stack, int number_a, int number)
 {
-	int number_move;
+	int i;
+	int count;
+	int start;
+	int min_val;
 
-	number_move = move_a_middle(a, size_stack, number_a, number);
-	if (number_move == -999999)
-		number_move = move_a_start(a, size_stack, number_a, number);
-	if (number_move == -999999)
-		return (0);
-	return (number_move);
+	min_val = find_min_value(a, size_stack, number_a);
+	if (number > find_max_value(a, size_stack, number_a) || number < min_val)
+	{
+		count = find_index(a, size_stack, number_a, min_val)
+		 - (size_stack - number_a);
+		return (optimal_rotation(count, number_a));
+	}
+	start = size_stack - number_a;
+	i = start;
+	count = 0;
+	while (i < size_stack - 1)
+	{
+		if (a[i] < number && number < a[i + 1])
+		{
+	    	return (optimal_rotation(count + 1, number_a));
+		}
+		i++;
+		count++;
+	}
+	return (0);
 }
-
-
