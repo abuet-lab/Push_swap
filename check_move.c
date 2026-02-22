@@ -6,142 +6,34 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 14:17:44 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/21 19:32:03 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/22 13:20:00 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int number_move_b(int size_stack, int number_a, int index)
+static int abs_val(int n)
 {
-	int number_b;
-	int count;
-	
-	count = 0;
-	number_b = size_stack - number_a;
-
-	if (index <= (number_b / 2 + number_a))
-	{
-		while (index > number_a)
-		{
-			count++;
-			index--;
-		}
-		return (count);
-	}
-	else if (index > (number_b / 2 + number_a))
-	{
-		while(index < size_stack)
-		{
-			index++;
-			count++;
-		}
-		return (count);
-	}
-	return (0);
+	if (n < 0)
+		return (n * -1);
+	return (n);
 }
 
-int find_min(int *a, int size_stack, int number_a)
+static int real_cost(int ma, int mb)
 {
-	int index_a;
-	int min_number;
-	int min_index;
-
-	if (number_a <= 0)
-		return (0);
-
-	index_a = size_stack - number_a;
-	min_number = a[index_a];
-	min_index = index_a;
-	while (index_a < size_stack)
+	if (ma >= 0 && mb >= 0)
 	{
-		if (a[index_a] < min_number)
-		{
-			min_number = a[index_a];
-			min_index = index_a;
-		}
-		index_a++;
+		if (ma > mb) 
+			return (ma);
+		return (mb);
 	}
-	return (min_index);
-}
-
-static int find_index(int *a, int size_stack, int number_a, int value)
-{
-	int i;	
-	i = size_stack - number_a;
-	while (i < size_stack)
+	if (ma <= 0 && mb <= 0)
 	{
-		if (a[i] == value)
-			return (i);
-		i++;
+		if (abs_val(ma) > abs_val(mb))
+			return (abs_val(ma));
+		return (abs_val(mb));
 	}
-	return (-1);
-}
-
-static int find_min_value(int *a, int size_stack, int number_a)
-{
-	int i;
-	int min;	
-	i = size_stack - number_a + 1;
-	min = a[size_stack - number_a];
-	while (i < size_stack)
-	{
-		if (a[i] < min)
-		    min = a[i];
-		i++;
-	}
-	return (min);
-}
-
-static int find_max_value(int *a, int size_stack, int number_a)
-{
-	int i;
-	int max;	
-	i = size_stack - number_a + 1;
-	max = a[size_stack - number_a];
-	while (i < size_stack)
-	{
-		if (a[i] > max)
-			max = a[i];
-		i++;
-	}
-	return (max);
-}
-
-static int optimal_rotation(int count, int number_a)
-{
-	if (count <= number_a / 2)
-		return (count);
-	return (number_a - count);
-}
-
-int number_move_a(int *a, int size_stack, int number_a, int number)
-{
-	int i;
-	int count;
-	int start;
-	int min_val;
-	
-	min_val = find_min_value(a, size_stack, number_a);
-	if (number > find_max_value(a, size_stack, number_a) || number < min_val)
-	{
-		count = find_index(a, size_stack, number_a, min_val)
-		 - (size_stack - number_a);
-		return (optimal_rotation(count, number_a));
-	}
-	start = size_stack - number_a;
-	i = start;
-	count = 0;
-	while (i < size_stack - 1)
-	{
-		if (a[i] < number && number < a[i + 1])
-		{
-	    	return (optimal_rotation(count + 1, number_a));
-		}
-		i++;
-		count++;
-	}
-	return (0);
+	return (abs_val(ma) + abs_val(mb));
 }
 
 int min_move(int *a, int *b, int size_stack, int number_a)
@@ -152,13 +44,12 @@ int min_move(int *a, int *b, int size_stack, int number_a)
 	int indexb_min_move;
 	
 	index_b = number_a;
-	current_nb_move = 999999;
 	indexb_min_move = number_a;
-	min_move = 0;
+	min_move = 99999;
 	while (index_b < size_stack)
 	{
-		current_nb_move = (number_move_b(size_stack, number_a, index_b)
-		 + number_move_a(a, size_stack, number_a, b[index_b]));
+		current_nb_move = real_cost(move_a(a, size_stack, number_a, b[index_b]),
+		 move_b(size_stack, number_a, index_b));
 		if (current_nb_move <= min_move)
 		{
 			min_move = current_nb_move;
@@ -168,4 +59,3 @@ int min_move(int *a, int *b, int size_stack, int number_a)
 	}
 	return (indexb_min_move);
 }
-

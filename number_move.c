@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:42:54 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/21 19:29:20 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/22 13:13:37 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int move_b(int size_stack, int number_a, int index)
 	
 	count = 0;
 	number_b = size_stack - number_a;
-
 	if (index <= (number_b / 2 + number_a))
 	{
 		while (index > number_a)
@@ -29,16 +28,36 @@ int move_b(int size_stack, int number_a, int index)
 		}
 		return (count);
 	}
-	else if (index > (number_b / 2 + number_a))
+	while(index < size_stack)
 	{
-		while(index < size_stack)
-		{
-			index++;
-			count++;
-		}
-		return (count * -1);
+		index++;
+		count++;
 	}
-	return (0);
+	return (count * -1);
+}
+
+int find_min(int *a, int size_stack, int number_a)
+{
+	int index_a;
+	int min_number;
+	int min_index;
+
+	if (number_a <= 0)
+		return (0);
+
+	index_a = size_stack - number_a;
+	min_number = a[index_a];
+	min_index = index_a;
+	while (index_a < size_stack)
+	{
+		if (a[index_a] < min_number)
+		{
+			min_number = a[index_a];
+			min_index = index_a;
+		}
+		index_a++;
+	}
+	return (min_index);
 }
 
 static int find_index(int *a, int size_stack, int number_a, int value)
@@ -97,7 +116,7 @@ int move_a(int *a, int size_stack, int number_a, int number)
 	int count;
 	int start;
 	int min_val;
-
+	
 	min_val = find_min_value(a, size_stack, number_a);
 	if (number > find_max_value(a, size_stack, number_a) || number < min_val)
 	{
