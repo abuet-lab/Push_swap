@@ -6,12 +6,41 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:18:13 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/21 22:41:06 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/23 17:08:22 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int sorting_a(int *a, int size_stack, int number_a, int nb_move_a)
+{
+	while (nb_move_a > 0)
+	{
+		rotate_a(a, size_stack, number_a);
+		nb_move_a--;
+	}
+	while (nb_move_a < 0)
+	{
+		reverse_rotate_a(a, size_stack, number_a);
+		nb_move_a++;
+	}
+	return (nb_move_a);
+}
+
+static int sorting_b(int *b, int size_stack, int number_a, int nb_move_b)
+{
+	while (nb_move_b > 0)
+	{
+		rotate_b(b, size_stack, number_a);
+		nb_move_b--;
+	}
+	while (nb_move_b < 0)
+	{	
+		reverse_rotate_b(b, size_stack, number_a);
+		nb_move_b++;
+	}
+	return (nb_move_b);
+}
 void sorting(int *a, int *b, int size_stack, int *number_a)
 {
 	int sorting_index;
@@ -34,26 +63,8 @@ void sorting(int *a, int *b, int size_stack, int *number_a)
 		nb_move_a++;
 		nb_move_b++;
 	}
-	while (nb_move_a > 0)
-	{
-		rotate_a(a, size_stack, *number_a);
-		nb_move_a--;
-	}
-	while (nb_move_a < 0)
-	{
-		reverse_rotate_a(a, size_stack, *number_a);
-		nb_move_a++;
-	}
-	while (nb_move_b > 0)
-	{
-		rotate_b(b, size_stack, *number_a);
-		nb_move_b--;
-	}
-	while (nb_move_b < 0)
-	{	
-		reverse_rotate_b(b, size_stack, *number_a);
-		nb_move_b++;
-	}
+	nb_move_a = sorting_a(a, size_stack, number_a[0], nb_move_a);
+	nb_move_b = sorting_b(b, size_stack, number_a[0], nb_move_b);
 	push_a(a, b, size_stack, number_a);
 }
 

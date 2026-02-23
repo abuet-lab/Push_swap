@@ -6,7 +6,7 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/22 13:46:01 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/23 16:51:41 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static void first_sorting_a(int *a, int size_stack, int number_a)
 	if (a[i] > a[i + 1])
 			swap_a(a, size_stack, number_a);
 }
-static int *ft_init_a (int argc, char **argv)
+
+static int *ft_init_a(int argc, char **argv)
 {
 	int *a;
 
@@ -63,6 +64,7 @@ static int ft_size_stack(int argc, char **argv)
 		return (count = argc - 1);
 	return (0);
 }
+
 static void ft_controller(int *a, int *b, int argc, char **argv)
 {
 	int size_stack;
