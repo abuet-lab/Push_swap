@@ -6,12 +6,12 @@
 /*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:53 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/15 16:28:16 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/23 17:09:58 by antoinebuet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//verify
+
 void swap_a(int *a, int size_stack, int number_a)
 {
 	int index_a;
@@ -39,7 +39,6 @@ void swap_b(int *b, int size_stack, int number_a)
 	b[index_b + 1] = temp;
 	write(1, "sb\n", 3);
 }
-
 void swap_ss(int *a, int *b, int size_stack, int number_a)
 {
 	int index_a;
@@ -59,6 +58,3 @@ void swap_ss(int *a, int *b, int size_stack, int number_a)
 	b[index_b + 1] = temp;
 	write(1, "ss\n", 3);
 }
-
-
-
