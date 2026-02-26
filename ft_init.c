@@ -6,7 +6,7 @@
 /*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:15:14 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/26 12:48:16 by abuet            ###   ########.fr       */
+/*   Updated: 2026/02/26 14:10:19 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_verif_arg(int argc, char **argv)
 				j++;
 			while (argv[i][j])
 			{
-				if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
+				if ((!(argv[i][j] >= 48 && argv[i][j] <= 57)))
 					return (write(1, "Error\n", 6), 1);
 				j++;
 			}
