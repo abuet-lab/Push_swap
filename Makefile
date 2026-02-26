@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abuet <abuet@student.42.fr>                +#+  +:+       +#+         #
+#    By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 21:53:05 by antoinebuet       #+#    #+#              #
-#    Updated: 2026/02/26 14:15:09 by abuet            ###   ########.fr        #
+#    Updated: 2026/02/26 14:28:01 by antoinebuet      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@
 ## ARGUMENTS
 
 NAME	= push_swap
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror -g -arch x86_64
 CC 	= cc
-ARGS ?=
+ARGS ?= 2 5 7 9 6
 ################################################################################
 ## SOURCES
 
