@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:44:53 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/23 17:09:58 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/26 12:00:57 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap_a(int *a, int size_stack, int number_a)
+void	swap_a(int *a, int size_stack, int number_a)
 {
-	int index_a;
-	int temp;
-	
+	int	index_a;
+	int	temp;
+
 	if (number_a < 2)
 		return ;
 	index_a = size_stack - number_a;
@@ -26,11 +26,11 @@ void swap_a(int *a, int size_stack, int number_a)
 	write(1, "sa\n", 3);
 }
 
-void swap_b(int *b, int size_stack, int number_a)
+void	swap_b(int *b, int size_stack, int number_a)
 {
-	int index_b;
-	int temp;
-	
+	int	index_b;
+	int	temp;
+
 	if ((size_stack - number_a) < 2)
 		return ;
 	index_b = number_a;
@@ -39,12 +39,13 @@ void swap_b(int *b, int size_stack, int number_a)
 	b[index_b + 1] = temp;
 	write(1, "sb\n", 3);
 }
-void swap_ss(int *a, int *b, int size_stack, int number_a)
+
+void	swap_ss(int *a, int *b, int size_stack, int number_a)
 {
-	int index_a;
-	int index_b;
-	int temp;
-	
+	int	index_a;
+	int	index_b;
+	int	temp;
+
 	if (((size_stack - number_a) < 2) && number_a < 2)
 		return ;
 	index_a = size_stack - number_a;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:18:13 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/23 17:09:01 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/26 12:02:53 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int sorting_a(int *a, int size_stack, int number_a, int nb_move_a)
+static int	sorting_a(int *a, int size_stack, int number_a, int nb_move_a)
 {
 	while (nb_move_a > 0)
 	{
@@ -27,7 +27,7 @@ static int sorting_a(int *a, int size_stack, int number_a, int nb_move_a)
 	return (nb_move_a);
 }
 
-static int sorting_b(int *b, int size_stack, int number_a, int nb_move_b)
+static int	sorting_b(int *b, int size_stack, int number_a, int nb_move_b)
 {
 	while (nb_move_b > 0)
 	{
@@ -35,22 +35,22 @@ static int sorting_b(int *b, int size_stack, int number_a, int nb_move_b)
 		nb_move_b--;
 	}
 	while (nb_move_b < 0)
-	{	
+	{
 		reverse_rotate_b(b, size_stack, number_a);
 		nb_move_b++;
 	}
 	return (nb_move_b);
 }
-void sorting(int *a, int *b, int size_stack, int *number_a)
+
+void	sorting(int *a, int *b, int size_stack, int *number_a)
 {
-	int sorting_index;
-	int nb_move_a;
-	int nb_move_b;
+	int	sorting_index;
+	int	nb_move_a;
+	int	nb_move_b;
 
 	sorting_index = min_move(a, b, size_stack, *number_a);
 	nb_move_a = move_a(a, size_stack, *number_a, b[sorting_index]);
 	nb_move_b = move_b(size_stack, *number_a, sorting_index);
-	
 	while (nb_move_a > 0 && nb_move_b > 0)
 	{
 		rotate_r(a, b, size_stack, *number_a);
@@ -68,12 +68,12 @@ void sorting(int *a, int *b, int size_stack, int *number_a)
 	push_a(a, b, size_stack, number_a);
 }
 
-void last_sorting(int *a, int size_stack, int number_a)
+void	last_sorting(int *a, int size_stack, int number_a)
 {
-	int index;
+	int	index;
 
 	index = find_min(a, size_stack, number_a);
-	if (index < number_a / 2  + (size_stack - number_a))
+	if (index < number_a / 2 + (size_stack - number_a))
 	{
 		while (index > 0)
 		{

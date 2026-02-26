@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+        */
+/*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/23 16:51:41 by antoinebuet      ###   ########.fr       */
+/*   Updated: 2026/02/26 12:51:21 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void first_sorting_a(int *a, int size_stack, int number_a)
+static void	first_sorting_a(int *a, int size_stack, int number_a)
 {
-	int i;
+	int	i;
 
 	i = (size_stack - number_a);
 	if ((a[i] < a[i + 1]) && (a[i + 1] < a[i + 2]))
 		return ;
 	if (a[i] < a[i + 1])
-			swap_a(a, size_stack, number_a);
+		swap_a(a, size_stack, number_a);
 	if (a[i] > a[i + 2])
 		rotate_a(a, size_stack, number_a);
 	if (a[i] > a[i + 1])
-			swap_a(a, size_stack, number_a);
+		swap_a(a, size_stack, number_a);
 }
 
-static int *ft_init_a(int argc, char **argv)
+static int	*ft_init_a(int argc, char **argv)
 {
-	int *a;
+	int	*a;
 
+	if (argc < 2)
+		return (0);
 	if (argc == 2)
-	{
 		a = ft_one_arg(argv);
-		if(!a)
-			return(0);
-	}
-	else if (argc > 2)
-	{
+	else
 		a = ft_many_arg(argc, argv);
-		if(!a)
-			return(0);
-	}
-	else 
+	if (!a)
 		return (0);
 	return (a);
 }
 
-static int ft_size_stack(int argc, char **argv)
+static int	ft_size_stack(int argc, char **argv)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (argc == 2)
 	{
-		count = number_string( argv[1], ' ');
+		count = number_string(argv[1], ' ');
 		return (count);
 	}
 	else if (argc > 2)
@@ -65,25 +59,25 @@ static int ft_size_stack(int argc, char **argv)
 	return (0);
 }
 
-static void ft_controller(int *a, int *b, int argc, char **argv)
+static void	ft_controller(int *a, int *b, int argc, char **argv)
 {
-	int size_stack;
-	int number_a;
+	int	size_stack;
+	int	number_a;
 
 	number_a = ft_size_stack(argc, argv);
 	size_stack = number_a;
-	while(number_a > 3) 
+	while (number_a > 3)
 		push_b(a, b, size_stack, &number_a);
 	first_sorting_a(a, size_stack, number_a);
 	while (number_a != size_stack)
-	 	sorting(a, b, size_stack, &number_a);
+		sorting(a, b, size_stack, &number_a);
 	last_sorting(a, size_stack, number_a);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int *a;
-	int *b;
+	int	*a;
+	int	*b;
 
 	if (ft_verif_arg(argc, argv) != 0)
 		return (0);
@@ -92,7 +86,7 @@ int main(int argc, char **argv)
 		return (0);
 	b = malloc (ft_size_stack(argc, argv) * sizeof(int));
 	if (!b)
-		return (0);
+		return (free(a), 0);
 	ft_controller(a, b, argc, argv);
 	free(a);
 	free(b);

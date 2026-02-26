@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antoinebuet <antoinebuet@student.42.fr>    +#+  +:+       +#+         #
+#    By: abuet <abuet@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 21:53:05 by antoinebuet       #+#    #+#              #
-#    Updated: 2026/02/26 11:41:33 by antoinebuet      ###   ########.fr        #
+#    Updated: 2026/02/26 12:47:13 by abuet            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@
 ## ARGUMENTS
 
 NAME	= push_swap
-CFLAGS	= -Wall -Wextra -Werror -g -arch x86_64
+CFLAGS	= -Wall -Wextra -Werror -g
 CC 	= cc
-ARGS ?= 1 2  4 5
+ARGS ?= 2 1 3
 ################################################################################
 ## SOURCES
 
@@ -24,7 +24,7 @@ HEADER = push_swap.h
 
 OPTION = -c -I $(HEADER)
 
-SRC_FILES = main.c push.c reverse.c rotate.c swap.c ft_atoi.c ft_split.c ft_strlcpy.c ft_init.c check_move.c sorting.c number_move.c\
+SRC_FILES = main.c push.c reverse.c rotate.c swap.c ft_atoi.c ft_split.c ft_strlcpy.c ft_init.c check_move.c sorting.c number_move.c number_move_2.c\
 
 OBJ_FILES =  $(SRC_FILES:.c=.o)
 
