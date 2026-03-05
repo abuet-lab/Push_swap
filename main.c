@@ -6,7 +6,7 @@
 /*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/26 12:51:21 by abuet            ###   ########.fr       */
+/*   Updated: 2026/03/05 17:12:05 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ static void	first_sorting_a(int *a, int size_stack, int number_a)
 	int	i;
 
 	i = (size_stack - number_a);
+	if (size_stack == 2)
+	{
+		if (a[i] < a[i + 1])
+			return ;
+		swap_a(a, size_stack, number_a);
+		return ;
+	}
 	if ((a[i] < a[i + 1]) && (a[i + 1] < a[i + 2]))
 		return ;
 	if (a[i] < a[i + 1])

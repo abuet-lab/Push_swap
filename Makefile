@@ -6,7 +6,7 @@
 #    By: abuet <abuet@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 21:53:05 by antoinebuet       #+#    #+#              #
-#    Updated: 2026/02/26 16:43:29 by abuet            ###   ########.fr        #
+#    Updated: 2026/03/05 16:36:22 by abuet            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 ## ARGUMENTS
 
 NAME	= push_swap
-CFLAGS	= -Wall -Wextra -Werror #-g -arch x86_64
+CFLAGS	= -Wall -Wextra -Werror -g #-arch x86_64
 CC 	= cc
 ARGS ?= 2 5 7 9 6
 ################################################################################

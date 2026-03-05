@@ -6,7 +6,7 @@
 /*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:15:14 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/26 14:10:19 by abuet            ###   ########.fr       */
+/*   Updated: 2026/03/05 17:08:20 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	*ft_one_arg(char **argv)
 	char	**temp_argv;
 
 	argc = 1;
-	j = 0;
+	j = 1;
 	temp_argv = ft_split(argv[1], ' ');
 	while (temp_argv[argc])
 		argc++;
@@ -123,5 +123,7 @@ int	*ft_one_arg(char **argv)
 		j++;
 	}
 	free(temp_argv);
+	if (argc == 2)
+		return (free(a), NULL);
 	return (a);
 }
