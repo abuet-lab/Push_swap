@@ -6,7 +6,7 @@
 /*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:18:13 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/26 12:02:53 by abuet            ###   ########.fr       */
+/*   Updated: 2026/03/12 17:16:03 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,20 @@ void	last_sorting(int *a, int size_stack, int number_a)
 		reverse_rotate_a(a, size_stack, number_a);
 		index++;
 	}
+}
+
+int	ever_sorting(int *a, int argc, char **argv)
+{
+	int	i;
+	int	size_stack;
+
+	i = 0;
+	size_stack = ft_size_stack(argc, argv);
+	while (i < size_stack - 1)
+	{
+		if (!(a[i] < a[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

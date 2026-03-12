@@ -6,7 +6,7 @@
 /*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:45:38 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/03/05 17:12:05 by abuet            ###   ########.fr       */
+/*   Updated: 2026/03/12 17:11:12 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	*ft_init_a(int argc, char **argv)
 	return (a);
 }
 
-static int	ft_size_stack(int argc, char **argv)
+int	ft_size_stack(int argc, char **argv)
 {
 	int	count;
 
@@ -91,6 +91,8 @@ int	main(int argc, char **argv)
 	a = ft_init_a(argc, argv);
 	if (!a)
 		return (0);
+	if (ever_sorting(a, argc, argv) == 1)
+		return (free(a), 0);
 	b = malloc (ft_size_stack(argc, argv) * sizeof(int));
 	if (!b)
 		return (free(a), 0);

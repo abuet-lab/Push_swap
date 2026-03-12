@@ -6,7 +6,7 @@
 /*   By: abuet <abuet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:58:27 by antoinebuet       #+#    #+#             */
-/*   Updated: 2026/02/26 12:45:08 by abuet            ###   ########.fr       */
+/*   Updated: 2026/03/12 17:11:30 by abuet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ int			move_b(int size_stack, int number_a, int index);
 void		sorting(int *a, int *b, int size_stack, int *number_a);
 
 void		last_sorting(int *a, int size_stack, int number_a);
+int			ever_sorting(int *a, int argc, char **argv);
+int			ft_size_stack(int argc, char **argv);
 
 #endif
